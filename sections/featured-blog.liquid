@@ -1,8 +1,8 @@
 <section class="featured-blog">
-    <div class="container">
+    <div class="page-container">
         <h2 class="main-title">Featured Blog</h2>
-        <div class="blogs">
-            {% for article in blogs[section.settings.blog].articles limit: 4 %}
+        <div class="blogs item-gap d-flex flex-wrap">
+            {% for article in blogs[section.settings.blog].articles limit: section.settings.column %}
                 <div class="blog-item">
                     <h3 class="article-title">{{ article.title }}</h3>
                     <p class="article-date">Posted on {{ article.published_at | date: "%b %d, %Y" }}</p>
@@ -17,6 +17,15 @@
 {
     "name": "Featured Blog",
     "settings": [
+        {
+            "type": "range",
+            "id": "column",
+            "max": 4,
+            "min": 0,
+            "default":4,
+            "label": "Blog Columns",
+            "step": 1
+        },
         {
             "type": "blog",
             "id": "blog",
