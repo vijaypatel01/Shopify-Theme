@@ -1,0 +1,109 @@
+<div class="page-container">
+    <div class="section-heading text-center">
+        <h2>{{ section.settings.title }}</h2>
+        {{ section.settings.subtitle }}
+    </div>
+    <div class="best-selling-products-slider">
+      {% for block in section.blocks %}
+        {% assign product = block.settings.product %}
+        <div class="card-product-item">
+          {% render 'card-product',
+          product:product %}
+        </div>
+      {% endfor %}
+    </div>
+</div>
+<script>
+jQuery(document).ready(function($){
+  $('.best-selling-products-slider').slick({
+    slidesToShow: 4,
+    rows: 2,
+    dots: false,
+    arrows: false,
+    autoplay: false,
+    speed: 300,
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 3,
+          rows: 1,
+          dots: true,
+          infinite: true,
+          autoplay: true
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          rows: 1,
+          dots: true,
+          infinite: true,
+          autoplay: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          rows: 1,
+          dots: true,
+          infinite: true,
+          autoplay: true
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          rows: 1,
+          dots: true,
+          infinite: true,
+          autoplay: true
+        }
+      }
+    ]
+  });
+});
+</script>
+{% schema %}
+{
+    "name": "Best selling products",
+    "class": "best-selling-products-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Best selling"
+      },
+      {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Section Subtitle",
+        "default": "<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>"
+      }
+    ],
+    "max_blocks": 8,
+    "blocks": [
+      {
+        "type": "product",
+        "name":"product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Best selling products",
+        }
+    ]
+}
+{% endschema %}

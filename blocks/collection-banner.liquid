@@ -1,0 +1,51 @@
+<section class="main-collection-banner" {% if block.settings.image_position == 'background' %}style="background-image: url({{ collection.image | image_url }});"{% endif %}>
+    <div class="page-container">
+        {% if block.settings.image_position == 'background' %}
+            <div class="banner banner--background">
+                <div class="banner__content">
+                    <h1 class="banner__heading m-0">{{ collection.title }}</h1>
+                    <p class="banner__description mb-0">{{ collection.description }}</p>
+                </div>
+            </div>
+        {% elsif block.settings.image_position == 'right' %}
+            <div class="banner banner--split">
+                <div class="banner__text">
+                    <h1 class="banner__heading">{{ collection.title }}</h1>
+                    <p class="banner__description">{{ collection.description }}</p>
+                </div>
+                <div class="banner__image">
+                    <img src="{{ collection.image | image_url }}" alt="{{ collection.title }}">
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Main Collection Banner",
+    "settings": [
+        {
+            "type": "select",
+            "id": "image_position",
+            "label": "Image Position",
+            "options": [
+                {
+                    "value": "background",
+                    "label": "Background Image"
+                },
+                {
+                    "value": "right",
+                    "label": "Right Side Image"
+                }
+            ],
+            "default": "background"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Main Collection Banner",
+        }
+    ]
+}
+{% endschema %}

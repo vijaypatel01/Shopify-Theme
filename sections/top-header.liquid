@@ -1,0 +1,60 @@
+<div class="top-header color-{{ section.settings.color_scheme }}{% if section.settings.color_scheme == 'dark' %} top-header-dark{% endif %}{% if section.settings.color_scheme == 'light' %} top-header-light{% endif %}">
+  <div class="page-container">
+    <div class="top-header-item-block d-flex justify-content-between align-items-center justify-content-center-sm">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'top-menu' %}
+          <div class="top-header-menu d-none-sm">
+            <ul class="list-unstyled d-flex align-items-center">
+              {% for link in block.settings['top-menu'].links %}
+                <li>
+                  <a href="{{ link.url }}" class="link">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="top-header-contact d-flex align-items-center">
+        <a class="contact-detail-info icon-email link d-flex align-items-center d-none-sm" href="mailto:{{ settings.email_id }}">
+            <span class="svg-wrapper">{{ 'icon-email.svg' | inline_asset_content }}</span>
+            {{ settings.email_id }}
+        </a>
+        <a class="contact-detail-info icon-phone link d-flex align-items-center" href="tel:{{ settings.phone_number }}">
+            <span class="svg-wrapper">{{ 'icon-phone.svg' | inline_asset_content }}</span>
+            {{ settings.phone_number }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Top Header",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2",
+    }
+  ],
+  "blocks": [
+    {
+      "type": "top-menu",
+      "name":"Top Menu",
+      "settings":[
+        {
+          "type":"link_list",
+          "id":"top-menu",
+          "label":"Menu"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name": "Top Header"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,53 @@
+
+<style>
+    .banner-slider-item:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / {{ block.settings.image_opacity }}%);
+        z-index: 1;
+    }
+</style>
+<div class="slide-background-image">
+    {% if block.settings.image %}
+        <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}">
+    {% else %}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+</div>
+<div class="banner-slider-content page-container d-flex flex-wrap justify-content-center align-items-normal">
+    {% content_for 'blocks' %}
+</div>
+{% schema %}
+{
+    "name": "Banner Slider item",
+    "class": "banner-slider-item",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Background Image",
+        },
+        {
+            "type": "range",
+            "id": "image_opacity",
+            "label": "Image Opacity",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "default": 40,
+            "unit": "%",
+        }
+    ],
+    "blocks": [{"type": "banner-image"}, {"type": "banner-text-block"}],
+    "presets": [
+        {
+            "name": "Banner Slider item",
+        }
+    ]
+}
+{% endschema %}

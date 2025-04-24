@@ -1,0 +1,237 @@
+{%- style -%}
+:root {
+    --column-box-border-radius: {{ section.settings.border_radius }}px;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media screen and (max-width: 991px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    }
+  }
+{%- endstyle -%}
+{%- liquid
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider
+    assign show_desktop_slider = true
+  endif
+-%}
+<div class="column-box-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+    <div class="page-container">
+        <div class="column-box-item item-gap d-flex flex-wrap{% if show_desktop_slider %} column-box-slider{% endif %}">
+            {% for block in section.blocks %}
+            <div class="column-box{% unless show_desktop_slider %} col-{{ section.settings.column_show }} col-{{ section.settings.column_show }}-sm col-{{ section.settings.column_show }}-xs{% endunless %}">
+                <div class="column" style="background: {% if block.settings.background_image %}url('{{ block.settings.background_image }}') no-repeat center/cover{% else %}rgb(var(--color-background)){% endif %};">
+                    <div class="column-content">
+                        {% if block.settings.subheading %}
+                        <span>{{ block.settings.subheading }}</span>
+                        {% endif %}
+                        {% if block.settings.heading %}
+                        <h3><a href="{{ block.settings.button_url }}" class="link h3">{{ block.settings.heading }}</a></h3>
+                        {% endif %}
+                        {% if block.settings.description %}
+                        {{ block.settings.description }}
+                        {% endif %}
+                        <a href="{{ block.settings.button_url }}" class="btn btn-secondary">
+                            <span class="svg-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" id="right-arrow" class="icon line"><path id="primary" d="M3,12H21m-3,3,3-3L18,9" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5;"/></svg>
+                            </span>
+                            <span class="span-title">{{ block.settings.button_label }}</span>
+                        </a>
+                    </div>
+                    {% if block.settings.image %}
+                    <div class="column-image image-box">
+                        <a class="image-box-link" href="{{ block.settings.button_url }}">
+                            <img src="{{ block.settings.image | image_url }}" alt="{{ block.settings.image.alt }}" class="img-fluid" />
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% if show_desktop_slider %}
+<script>
+jQuery(document).ready(function($){
+  $('.column-box-slider').slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    speed: 300,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 2,
+          arrows: false,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          dots: true
+        }
+      },
+       {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          arrows: false
+        }
+      }
+    ]
+  });
+});
+</script>
+{% endif %}
+{% schema %}
+{
+    "name": "Column Box",
+    "settings": [
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color scheme",
+            "default": "scheme-3",
+        },
+        {
+            "type": "range",
+            "id": "border_radius",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Border Radius",
+            "default": 10,
+        },
+        {
+            "type": "range",
+            "id": "column_show",
+            "max": 4,
+            "min": 1,
+            "default":3,
+            "step": 1,
+            "label": "Column Show"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_desktop_slider",
+            "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
+            "default": false
+        },
+        {
+            "type": "header",
+            "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 60
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 60
+        }
+    ],
+    "blocks": [
+        {
+            "type": "column",
+            "name": "Column",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "background_image",
+                    "label": "Background Image"
+                },
+                {
+                    "type": "text",
+                    "id": "subheading",
+                    "label": "Subheading",
+                    "default": "Subheading"
+                },
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading",
+                    "default": "Heading"
+                },
+                {
+                    "type": "richtext",
+                    "id": "description",
+                    "label": "Description",
+                    "default": "<p>Description</p>",
+                    "info": "Add a description for the column."
+                },
+                {
+                    "type": "url",
+                    "id": "button_url",
+                    "label": "Button URL"
+                },
+                {
+                    "type": "text",
+                    "id": "button_label",
+                    "label": "Button Label",
+                    "default": "Shop Now",
+                    "info": "Label for the button that links to the URL specified above."
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image",                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Column Box",
+            "category": "Custom",
+            "blocks": [
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                },
+                {
+                    "type": "column"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,66 @@
+<style>
+    #shopify-block-{{ block.id }} p{
+    text-align: {{ block.settings.text_align }};
+    margin-top:20px;
+    }
+    #shopify-block-{{ block.id }} a{
+        {% if block.settings.text_align == 'center' %}
+        margin:  0 auto ;
+        {% elsif block.settings.text_align == 'left' %}
+        margin: 0;
+        {% elsif block.settings.text_align == 'right' %}
+        margin-left: auto;
+        {% endif %}
+    }
+</style>
+<h2 class="m-0 text-{{ block.settings.text_align }}">{{ block.settings.heading }}</h2>
+{{ block.settings.description }}
+<a href="{{ block.settings.button_link }}" class="btn">
+    {{ block.settings.button_text }}
+</a>
+{% schema %}
+{
+    "name": "Banner Text",
+    "class": "banner-text-block w-50 text-center h-auto d-flex flex-column justify-content-center w-100-sm",
+    "settings": [
+        {
+        "type": "text_alignment",
+        "id": "text_align",
+        "label": "Text Align",
+        "default": "center",
+        },
+        {
+            "type": "header",
+            "content": "Banner Text Settings"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>This is a description</p>"
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+        },
+        {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "Learn More"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Banner Text"
+        }
+    ]
+}
+{% endschema %}

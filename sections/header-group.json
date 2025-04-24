@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "announcement_text": "This is an announcement!"
+      }
+    },
+    "top_header_eDWqtA": {
+      "type": "top-header",
+      "blocks": {
+        "top_menu_tGyeNj": {
+          "type": "top-menu",
+          "settings": {
+            "top-menu": "top-menu"
+          }
+        }
+      },
+      "block_order": [
+        "top_menu_tGyeNj"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "usps_bar_qyiGYG": {
+      "type": "usps-bar",
+      "blocks": {
+        "usp_block_6rMzFb": {
+          "type": "usp_block",
+          "settings": {
+            "heading": "USP Heading",
+            "description": "USP Description"
+          }
+        },
+        "usp_block_9iqhHg": {
+          "type": "usp_block",
+          "settings": {
+            "heading": "USP Heading",
+            "description": "USP Description"
+          }
+        },
+        "usp_block_8bdzt8": {
+          "type": "usp_block",
+          "settings": {
+            "heading": "USP Heading",
+            "description": "USP Description"
+          }
+        },
+        "usp_block_wUGJcw": {
+          "type": "usp_block",
+          "settings": {
+            "heading": "USP Heading",
+            "description": "USP Description"
+          }
+        }
+      },
+      "block_order": [
+        "usp_block_6rMzFb",
+        "usp_block_9iqhHg",
+        "usp_block_8bdzt8",
+        "usp_block_wUGJcw"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "top_header_eDWqtA",
+    "header",
+    "usps_bar_qyiGYG"
+  ]
+}

@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main_collection_V9Q8kD": {
+      "type": "main-collection",
+      "blocks": {
+        "collection_banner_KGLTA9": {
+          "type": "collection-banner",
+          "settings": {
+            "image_position": "background"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "collection_banner_KGLTA9"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main_collection_V9Q8kD"
+  ]
+}

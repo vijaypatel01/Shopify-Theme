@@ -1,0 +1,23 @@
+{% if block.settings.image != blank %}
+    <img src="{{ block.settings.image | image_url }}" alt="{{ slide.alt_text }}">
+{% else %}
+    {{ 'collection-6' | placeholder_svg_tag: 'banner-placeholder-svg' }}
+{% endif %}
+{% schema %}
+{
+    "name": "Banner Image",
+    "class": "banner-image w-50 w-100-sm",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Banner Image"
+        }
+    ]
+}
+{% endschema %}

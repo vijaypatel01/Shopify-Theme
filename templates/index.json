@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner_slider": {
+      "type": "banner-slider",
+      "blocks": {
+        "banner_slider_item": {
+          "type": "banner-slider-item",
+          "settings": {
+            "image_opacity": 40
+          },
+          "blocks": {
+            "banner_image": {
+              "type": "banner-image",
+              "settings": {
+                "image": "shopify://shop_images/fashion-shoes-sneakers-removebg-preview.png"
+              },
+              "blocks": {}
+            },
+            "banner_text_block": {
+              "type": "banner-text-block",
+              "settings": {
+                "text_align": "left",
+                "heading": "Fashion Shoes Sneakers",
+                "description": "<p>Discover the perfect pair of fashion sneakers to elevate your style. Explore our collection for on-trend footwear options.</p>",
+                "button_link": "#",
+                "button_text": "Learn More"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "banner_image",
+            "banner_text_block"
+          ]
+        },
+        "banner_slider_item_kUCpHC": {
+          "type": "banner-slider-item",
+          "settings": {
+            "image_opacity": 40
+          },
+          "blocks": {
+            "banner_image_qntjRa": {
+              "type": "banner-image",
+              "settings": {
+                "image": "shopify://shop_images/shoes-removebg-preview.png"
+              },
+              "blocks": {}
+            },
+            "banner_text_block_tWVYWD": {
+              "type": "banner-text-block",
+              "settings": {
+                "text_align": "left",
+                "heading": "Leather Shoes",
+                "description": "<p>Experience luxury comfort with our collection of high-quality leather shoes. The perfect blend of style and craftsmanship.</p>",
+                "button_link": "#",
+                "button_text": "Learn More"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "banner_image_qntjRa",
+            "banner_text_block_tWVYWD"
+          ]
+        }
+      },
+      "block_order": [
+        "banner_slider_item",
+        "banner_slider_item_kUCpHC"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3"
+      }
+    },
+    "column_box": {
+      "type": "column-box",
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "subheading": "Nutrition",
+            "heading": "Essentials",
+            "description": "<p>Explore our collection of essential items that.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "subheading": "GET ALL YOUR",
+            "heading": "Medication One Place",
+            "description": "<p>Find all your medications in one convenient place.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "subheading": "UP TO 25% OFF",
+            "heading": "Naturally Good",
+            "description": "<p>Satisfy your cravings with our naturally.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2",
+        "column_3"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "border_radius": 10,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "new_arrival_J3Hxg7": {
+      "type": "new-arrival",
+      "settings": {}
+    },
+    "category_section_hbtKWe": {
+      "type": "category-section",
+      "settings": {}
+    },
+    "column_box_2_Twj6mL": {
+      "type": "column-box-2",
+      "settings": {}
+    },
+    "best_selling_products_4pDCUz": {
+      "type": "best-selling-products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner_slider",
+    "column_box",
+    "new_arrival_J3Hxg7",
+    "category_section_hbtKWe",
+    "column_box_2_Twj6mL",
+    "best_selling_products_4pDCUz"
+  ]
+}

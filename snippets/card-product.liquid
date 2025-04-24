@@ -1,0 +1,140 @@
+<div class="card-product-img">
+    <a href="{{ product.url }}">
+      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+    </a>
+</div>
+<div class="card-product-content">
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+</div>
+<div class="card-product-price_btn">
+  <div class="card-product-price">
+      {% if product.compare_at_price > product.price %}
+          <span class="price-regular">{{ product.price | money }}</span>
+          <s class="price-sale">{{ product.compare_at_price | money }}</s>
+      {% else %}
+          <span class="price-regular">{{ product.price | money }}</span>
+      {% endif %}
+  </div>
+  <div class="card-product-btn">
+    <div class="quick-add no-js-hidden">
+        {%- liquid
+          assign qty_rules = false
+          if product.selected_or_first_available_variant.quantity_rule.min > 1 or product.selected_or_first_available_variant.quantity_rule.max != null or product.selected_or_first_available_variant.quantity_rule.increment > 1
+            assign qty_rules = true
+          endif
+        -%}
+        {%- if product.variants_count > 1 or qty_rules -%}
+          <modal-opener data-modal="#QuickAdd-{{ product.id }}">
+            <button
+              id="{{ product_form_id }}-submit"
+              type="submit"
+              name="add"
+              class="btn"
+              aria-haspopup="dialog"
+              aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product.id }}"
+              data-product-url="{{ product.url }}"
+            >
+              {{ 'products.product.choose_options' | t }}
+              {%- render 'loading-spinner' -%}
+            </button>
+          </modal-opener>
+          <quick-add-modal id="QuickAdd-{{ product.id }}" class="quick-add-modal">
+            <div
+              role="dialog"
+              aria-label="{{ 'products.product.choose_product_options' | t: product_name: product.title | escape }}"
+              aria-modal="true"
+              class="quick-add-modal__content global-settings-popup"
+              tabindex="-1"
+            >
+              <button
+                id="ModalClose-{{ product.id }}"
+                type="button"
+                class="quick-add-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </button>
+              <div id="QuickAddInfo-{{ product.id }}" class="quick-add-modal__content-info">
+                <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+              </div>
+            </div>
+          </quick-add-modal>
+        {%- else -%}
+          <product-form data-section-id="{{ section.id }}">
+            {%- form 'product',
+              product,
+              id: product_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ product.selected_or_first_available_variant.id }}"
+                class="product-variant-id"
+                {% if product.selected_or_first_available_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+              <button
+                id="{{ product_form_id }}-submit"
+                type="submit"
+                name="add"
+                class="btn"
+                aria-haspopup="dialog"
+                aria-labelledby="{{ product_form_id }}-submit title-{{ section.id }}-{{ product.id }}"
+                aria-live="polite"
+                data-sold-out-message="true"
+                {% if product.selected_or_first_available_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+                <span>
+                  {%- if product.selected_or_first_available_variant.available -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- else -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- endif -%}
+                </span>
+                <span class="sold-out-message hidden">
+                  {{ 'products.product.sold_out' | t }}
+                </span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            {%- endform -%}
+          </product-form>
+        {%- endif -%}
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Find all modal opener buttons
+  document.querySelectorAll("modal-opener button").forEach(button => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); // prevent form submission if it's a submit button
+
+      // Get the modal target from the data attribute
+      const modalSelector = button.closest("modal-opener").getAttribute("data-modal");
+      const modal = document.querySelector(modalSelector);
+
+      if (modal) {
+        modal.classList.add("modal-opener-show"); // show modal
+        document.body.classList.add("modal-opener-show"); // apply class to body
+      }
+    });
+  });
+
+  // Optional: add close functionality
+  document.querySelectorAll(".quick-add-modal__toggle").forEach(closeBtn => {
+    closeBtn.addEventListener("click", function () {
+      const modal = closeBtn.closest(".quick-add-modal");
+      if (modal) {
+        modal.classList.remove("modal-opener-show");
+        document.body.classList.remove("modal-opener-show");
+      }
+    });
+  });
+});
+</script>
