@@ -2,8 +2,8 @@
     <div class="page-container">
         <h2 class="main-title">Featured Blog</h2>
         <div class="blogs item-gap d-flex flex-wrap">
-            {% for article in blogs[section.settings.blog].articles limit: section.settings.column %}
-                <div class="blog-item">
+            {% for article in blogs[section.settings.blog].articles limit: section.settings.column_show %}
+                <div class="blog-item col-{{ section.settings.column_show }} col-{{ section.settings.column_show }}-lg col-{{ section.settings.column_show }}-sm col-{{ section.settings.column_show }}-xs">
                     <h3 class="article-title">{{ article.title }}</h3>
                     <p class="article-date">Posted on {{ article.published_at | date: "%b %d, %Y" }}</p>
                     <a href="{{ article.url }}" class="read-more">Read More</a>
@@ -19,7 +19,7 @@
     "settings": [
         {
             "type": "range",
-            "id": "column",
+            "id": "column_show",
             "max": 4,
             "min": 0,
             "default":4,

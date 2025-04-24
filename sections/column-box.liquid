@@ -36,7 +36,7 @@
                 {% if show_desktop_slider %}
                 <div class="swiper-slide">
             {% endif %}
-            <div class="column-box{% unless show_desktop_slider %} col-{{ section.settings.column_show }} col-{{ section.settings.column_show }}-sm col-{{ section.settings.column_show }}-xs{% endunless %}">
+            <div class="column-box{% unless show_desktop_slider %} col-{{ section.settings.column_show }} col-{{ section.settings.column_show }}-lg col-{{ section.settings.column_show }}-sm col-{{ section.settings.column_show }}-xs{% endunless %}">
                 <div class="column" style="background: {% if block.settings.background_image %}url('{{ block.settings.background_image }}') no-repeat center/cover{% else %}rgb(var(--color-background)){% endif %};">
                     <div class="column-content">
                         {% if block.settings.subheading %}
