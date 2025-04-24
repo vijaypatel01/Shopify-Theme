@@ -1,0 +1,93 @@
+<div class="swiper brand-logo-slider">
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+	{% for block in section.blocks %}
+    <div class="swiper-slide">
+		<img src="{{ block.settings.image | image_url }}" alt="Slide {{ forloop.index }}">
+	</div>
+	{% endfor %}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+	const swiper = new Swiper(".brand-logo-slider", {
+		loop: true,
+		spaceBetween: 24,
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+		breakpoints: {
+			0: {
+				slidesPerView: 1,
+			},
+			575: {
+				slidesPerView: 2,
+			},
+			640: {
+				slidesPerView: 2,
+			},
+			768: {
+				slidesPerView: 2,
+			},
+			812: {
+				slidesPerView: 3,
+			},
+			1024: {
+				slidesPerView: 4,
+				grid: {
+					rows: 2,
+					slidesPerView: 4,
+					fill: "row",
+				},
+			},
+		},
+	});
+</script>
+{% schema %}
+{
+    "name": "Featured Brands logos",
+    "class": "brands-logos-section",
+    "settings": [
+     
+    ],
+	"blocks": [
+		{
+			"type": "logo",
+			"name":"Logo",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image",
+				}
+			]
+		}
+	],
+    "presets": [
+        {
+            "name": "Featured Brands logos",
+			"blocks": [
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"}
+			]
+        }
+    ]
+}
+{% endschema %}

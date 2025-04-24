@@ -1,6 +1,8 @@
 <div class="banner-slider color-{{ section.settings.color_scheme }}">
-    <div class="slider">
-        {% content_for 'blocks' %}
+    <div class="slider swiper">
+        <div class="swiper-wrapper">
+            {% content_for 'blocks' %}
+        </div>
     </div>
     <div class="slider-nav">
         <div class="slider-dots"></div>
@@ -30,18 +32,15 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('.slider').slick({
-            dots: true,
-            appendDots: $('.slider-dots'),
-            prevArrow: $('.prev-button'),
-            nextArrow: $('.next-button'),
-            slidesToShow: 1,
-            infinite: false,
-            autoplay: false,
-            slidesToScroll: 1,
-            adaptiveHeight: true,
-        });
+   var swiper = new Swiper(".slider", {
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".next-button",
+        prevEl: ".prev-button",
+      },
     });
 </script>
 

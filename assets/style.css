@@ -287,7 +287,6 @@ span.price-regular,
 }
 .slick-slide {
   padding: 0 calc(var(--spacing_blocks) / 2);
-  height: auto !important;
 }
 .shopify-section {
   overflow: hidden;
@@ -595,9 +594,10 @@ span.price-regular,
   bottom: 0;
 }
 .banner-slider .slider-nav {
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  position: absolute;
+  z-index: 111;
+  bottom: 0;
 }
 .banner-slider .slider-controls {
   display: flex;
@@ -952,12 +952,12 @@ ul.slick-dots {
   max-width: 100%;
   max-height: max-content;
 }
-.best-selling-products-slider .slick-list .card-product-item {
+.best-selling-products-slider .card-product-item {
   position: relative;
   padding-bottom: 90px;
   padding-left: 12px;
   padding-right: 12px;
-  height: inherit;
+  height: 100%;
   margin-top: 24px;
 }
 .card-product-content h3,

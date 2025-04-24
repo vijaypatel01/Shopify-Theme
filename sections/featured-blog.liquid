@@ -1,0 +1,33 @@
+<section class="featured-blog">
+    <div class="container">
+        <h2 class="main-title">Featured Blog</h2>
+        <div class="blogs">
+            {% for article in blogs[section.settings.blog].articles limit: 4 %}
+                <div class="blog-item">
+                    <h3 class="article-title">{{ article.title }}</h3>
+                    <p class="article-date">Posted on {{ article.published_at | date: "%b %d, %Y" }}</p>
+                    <a href="{{ article.url }}" class="read-more">Read More</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Featured Blog",
+    "settings": [
+        {
+            "type": "blog",
+            "id": "blog",
+            "label": "Select Blog"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Blog",
+            "category": "Blog"
+        }
+    ]
+}
+{% endschema %}

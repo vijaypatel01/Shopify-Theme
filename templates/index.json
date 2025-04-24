@@ -126,33 +126,219 @@
       "settings": {
         "color_scheme": "",
         "border_radius": 10,
+        "column_show": 3,
+        "enable_desktop_slider": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "column_box_dU9Rfn": {
+      "type": "column-box",
+      "blocks": {
+        "column_UNjxPG": {
+          "type": "column",
+          "settings": {
+            "subheading": "Nutrition",
+            "heading": "Essentials",
+            "description": "<p>Explore our collection of essential items that.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        },
+        "column_DyHT6k": {
+          "type": "column",
+          "settings": {
+            "subheading": "GET ALL YOUR",
+            "heading": "Medication One Place",
+            "description": "<p>Find all your medications in one convenient place.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        },
+        "column_JnHJBc": {
+          "type": "column",
+          "settings": {
+            "subheading": "GET ALL YOUR",
+            "heading": "Medication One Place",
+            "description": "<p>Find all your medications in one convenient place.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        },
+        "column_RqTFpp": {
+          "type": "column",
+          "settings": {
+            "subheading": "GET ALL YOUR",
+            "heading": "Medication One Place",
+            "description": "<p>Find all your medications in one convenient place.</p>",
+            "button_url": "",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/home3_slide-item.webp"
+          }
+        }
+      },
+      "block_order": [
+        "column_UNjxPG",
+        "column_DyHT6k",
+        "column_JnHJBc",
+        "column_RqTFpp"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "border_radius": 10,
+        "column_show": 2,
+        "enable_desktop_slider": true,
         "padding_top": 60,
         "padding_bottom": 60
       }
     },
     "new_arrival_J3Hxg7": {
       "type": "new-arrival",
-      "settings": {}
+      "settings": {
+        "title": "New arrival",
+        "image": "shopify://shop_images/home3_slide-item.webp",
+        "color_scheme": "",
+        "collection": "adidas",
+        "product_limit": 5
+      }
     },
     "category_section_hbtKWe": {
       "type": "category-section",
-      "settings": {}
-    },
-    "column_box_2_Twj6mL": {
-      "type": "column-box-2",
+      "blocks": {
+        "category_item_eip7p9": {
+          "type": "category_item",
+          "settings": {
+            "title": "Advil 12 Hour 30 Tablets",
+            "link": "",
+            "image": "shopify://shop_images/collection-image.jpg"
+          }
+        },
+        "category_item_PmVDpE": {
+          "type": "category_item",
+          "settings": {
+            "title": "Advil 12 Hour 30 Tablets",
+            "link": "",
+            "image": "shopify://shop_images/collection-image.jpg"
+          }
+        },
+        "category_item_iP8MM8": {
+          "type": "category_item",
+          "settings": {
+            "title": "Advil 12 Hour 30 Tablets",
+            "link": "",
+            "image": "shopify://shop_images/collection-image.jpg"
+          }
+        },
+        "category_item_F8QWRb": {
+          "type": "category_item",
+          "settings": {
+            "title": "Advil 12 Hour 30 Tablets",
+            "link": "",
+            "image": "shopify://shop_images/collection-image.jpg"
+          }
+        },
+        "category_item_VLJ8pj": {
+          "type": "category_item",
+          "settings": {
+            "title": "Advil 12 Hour 30 Tablets",
+            "link": "",
+            "image": "shopify://shop_images/collection-image.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "category_item_eip7p9",
+        "category_item_PmVDpE",
+        "category_item_iP8MM8",
+        "category_item_F8QWRb",
+        "category_item_VLJ8pj"
+      ],
       "settings": {}
     },
     "best_selling_products_4pDCUz": {
       "type": "best-selling-products",
-      "settings": {}
+      "blocks": {
+        "product_9Kxgr8": {
+          "type": "product",
+          "settings": {
+            "product": "adidas-classic-backpack"
+          }
+        },
+        "product_8yiKVe": {
+          "type": "product",
+          "settings": {
+            "product": "adidas-classic-backpack-legend-ink-multicolour"
+          }
+        },
+        "product_X7rDH4": {
+          "type": "product",
+          "settings": {
+            "product": "adidas-kids-stan-smith"
+          }
+        },
+        "product_KpKARF": {
+          "type": "product",
+          "settings": {
+            "product": "adidas-superstar-80s"
+          }
+        },
+        "product_giHFLR": {
+          "type": "product",
+          "settings": {
+            "product": "asics-tiger-gel-lyte-v-30-years-of-gel-pack"
+          }
+        },
+        "product_RLpLQy": {
+          "type": "product",
+          "settings": {
+            "product": "converse-chuck-taylor-all-star-ii-hi"
+          }
+        },
+        "product_Ag8z9U": {
+          "type": "product",
+          "settings": {
+            "product": "converse-chuck-taylor-all-star-lo"
+          }
+        },
+        "product_QxXeWy": {
+          "type": "product",
+          "settings": {
+            "product": "converse-toddler-chuck-taylor-all-star-axel-mid"
+          }
+        }
+      },
+      "block_order": [
+        "product_9Kxgr8",
+        "product_8yiKVe",
+        "product_X7rDH4",
+        "product_KpKARF",
+        "product_giHFLR",
+        "product_RLpLQy",
+        "product_Ag8z9U",
+        "product_QxXeWy"
+      ],
+      "settings": {
+        "title": "Best selling",
+        "subtitle": "<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>"
+      }
+    },
+    "featured_blog_ncRgLp": {
+      "type": "featured-blog",
+      "settings": {
+        "blog": "news"
+      }
     }
   },
   "order": [
     "banner_slider",
     "column_box",
+    "column_box_dU9Rfn",
     "new_arrival_J3Hxg7",
     "category_section_hbtKWe",
-    "column_box_2_Twj6mL",
-    "best_selling_products_4pDCUz"
+    "best_selling_products_4pDCUz",
+    "featured_blog_ncRgLp"
   ]
 }

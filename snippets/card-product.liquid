@@ -110,23 +110,22 @@
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Find all modal opener buttons
+  // Open modal
   document.querySelectorAll("modal-opener button").forEach(button => {
     button.addEventListener("click", function (event) {
-      event.preventDefault(); // prevent form submission if it's a submit button
+      event.preventDefault(); // Prevent form submission if needed
 
-      // Get the modal target from the data attribute
       const modalSelector = button.closest("modal-opener").getAttribute("data-modal");
       const modal = document.querySelector(modalSelector);
 
       if (modal) {
-        modal.classList.add("modal-opener-show"); // show modal
-        document.body.classList.add("modal-opener-show"); // apply class to body
+        modal.classList.add("modal-opener-show");
+        document.body.classList.add("modal-opener-show-body");
       }
     });
   });
 
-  // Optional: add close functionality
+  // Close modal
   document.querySelectorAll(".quick-add-modal__toggle").forEach(closeBtn => {
     closeBtn.addEventListener("click", function () {
       const modal = closeBtn.closest(".quick-add-modal");

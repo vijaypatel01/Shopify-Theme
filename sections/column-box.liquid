@@ -28,8 +28,14 @@
 -%}
 <div class="column-box-section section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
     <div class="page-container">
-        <div class="column-box-item item-gap d-flex flex-wrap{% if show_desktop_slider %} column-box-slider{% endif %}">
+        <div class="column-box-item item-gap d-flex flex-wrap{% if show_desktop_slider %} swiper column-box-slider{% endif %}">
+            {% if show_desktop_slider %}
+                <div class="swiper-wrapper">
+            {% endif %}
             {% for block in section.blocks %}
+                {% if show_desktop_slider %}
+                <div class="swiper-slide">
+            {% endif %}
             <div class="column-box{% unless show_desktop_slider %} col-{{ section.settings.column_show }} col-{{ section.settings.column_show }}-sm col-{{ section.settings.column_show }}-xs{% endunless %}">
                 <div class="column" style="background: {% if block.settings.background_image %}url('{{ block.settings.background_image }}') no-repeat center/cover{% else %}rgb(var(--color-background)){% endif %};">
                     <div class="column-content">
@@ -58,54 +64,30 @@
                     {% endif %}
                 </div>
             </div>
+            {% if show_desktop_slider %}
+            </div>
+            {% endif %}
             {% endfor %}
+            {% if show_desktop_slider %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
 {% if show_desktop_slider %}
-<script>
-jQuery(document).ready(function($){
-  $('.column-box-slider').slick({
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    speed: 300,
-    infinite: true,
-    responsive: [
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 2,
-          arrows: false,
-          dots: true
-        }
+    <script>
+   var swiper = new Swiper(".column-box-slider", {
+    slidesPerView:{{ section.settings.column_show }},
+        spaceBetween: 24,
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
       },
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 2,
-          dots: true
-        }
+      navigation: {
+        nextEl: ".next-button",
+        prevEl: ".prev-button",
       },
-       {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          arrows: false
-        }
-      }
-    ]
-  });
-});
+    });
 </script>
 {% endif %}
 {% schema %}

@@ -1,64 +1,34 @@
-<div class="category-slider">
+<div class="category-slider swiper">
+  <div class="swiper-wrapper">
   {% for block in section.blocks %}
-    <div class="category-item">
-      <div class="category-img">
-        <a href="{{ block.settings.link }}">
-          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" class="img-fluid" />
-        </a>
-      </div>
-      <div class="category-content">
-        <a href="{{ block.settings.link }}">
-          <h3>{{ block.settings.title }}</h3>
-          <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 243.58"><path fill-rule="nonzero" d="M373.57 0 512 120.75 371.53 243.58l-20.92-23.91 94.93-83L0 137.09v-31.75l445.55-.41-92.89-81.02z"/></svg>
-        </a>
+    <div class="swiper-slide">
+      <div class="category-item">
+        <div class="category-img">
+          <a href="{{ block.settings.link }}">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}" class="img-fluid" />
+          </a>
+        </div>
+        <div class="category-content">
+          <a href="{{ block.settings.link }}">
+            <h3>{{ block.settings.title }}</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 243.58"><path fill-rule="nonzero" d="M373.57 0 512 120.75 371.53 243.58l-20.92-23.91 94.93-83L0 137.09v-31.75l445.55-.41-92.89-81.02z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   {% endfor %}
+  </div>
 </div>
 
-<script>
-jQuery(document).ready(function($){
-  $('.category-slider').slick({
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    dots: true,
-    arrows: false,
-    autoplay: true,
-    speed: 300,
-    infinite: true,
-    responsive: [
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 3,
-          arrows: false,
-          dots: true
-        }
+  <script>
+   var swiper = new Swiper(".category-slider", {
+      slidesPerView: 4,
+      spaceBetween: 24,
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
       },
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 2,
-          dots: true
-        }
-      },
-       {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          arrows: false
-        }
-      }
-    ]
-  });
-});
+    });
 </script>
 {% schema %}
 {

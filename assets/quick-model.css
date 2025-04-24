@@ -1,3 +1,10 @@
 .quick-add-modal {
   display: none;
 }
+.quick-add-modal.modal-opener-show {
+  display: block;
+}
+.modal-opener-show-body {
+  overflow-y: hidden;
+  position: relative;
+}
